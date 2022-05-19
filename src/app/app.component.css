@@ -1,34 +1,53 @@
+.app {
+  overflow: auto;
+  margin-bottom: 50px;
+}
 
-  .app {
-    overflow: auto;
-    margin-bottom: 50px;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 20px;
+  text-align: center;
+}
+
+.flex-item {
+  padding: 10px;
+  flex: 45%;
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
   }
+}
 
-h1, h3 {
+h1,
+h3 {
   text-align: center;
   background-color: #3f51b5;
   color: whitesmoke;
 }
 
-  .toolbar {
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height:55px;
-    text-align: center;
-    position: fixed;
-    background-color: gold;
-    border-bottom: 0;
-    color: gray;
-    font-size: -webkit-xxx-large;
-    font-weight: bold;
+.toolbar {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 55px;
+  text-align: center;
+  position: fixed;
+  background-color: gold;
+  border-bottom: 0;
+  color: gray;
+  font-size: -webkit-xxx-large;
+  font-weight: bold;
 }
 
 button {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 10px;
-    font-size: xx-large;
-    outline: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  font-size: xx-large;
+  outline: none;
 }

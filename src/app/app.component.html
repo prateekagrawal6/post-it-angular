@@ -1,8 +1,8 @@
 <h1>Welcome to Efecte's PostIT Application</h1>
 <h3>You may start creating notes by clicking on Add Button at the bottom</h3>
-<div class="app">
-  <app-note *ngFor="let note of notes; let i = index" (dismiss)="deleteNote($event, i)" (save)="saveNote($event, i)"
-    id="{{note.id}}">{{note.note}}</app-note>
+<div class="app flex-container">
+  <app-note class="flex-item" *ngFor="let note of notes; let i = index" (dismiss)="deleteNote($event, i)"
+    (save)="saveNote($event, i)" id="{{note.id}}">{{note.note}}</app-note>
 </div>
 <div class="toolbar" id="toolbar" tabindex="0">
   <button class="add material-icons" (click)="addNote()">
