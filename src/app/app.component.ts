@@ -28,20 +28,22 @@ export class AppComponent {
   saveNote(event: any, index: number) {
     const id = event.srcElement.parentElement.parentElement.getAttribute('id');
     const content = event.target.innerText;
-    const json: Note = {
-      'note': content
+    if (content) {
+      const json: Note = {
+        'note': content
+      }
+      if (!id.includes('new')) {
+        json.id = id;
+      }
+      console.log("JSON" + JSON.stringify(json))
+      this.noteService.createNote(json).subscribe(data => {
+        event.srcElement.parentElement.parentElement.setAttribute('id', data.id)
+        this.notes[index].id = data.id;
+        this.notes[index].content = data.note;
+        event.target.style.backgroundColor = "rgb(255 248 198)";
+        console.log("********* updating note to API *********", data.id)
+      })
     }
-    if (!id.includes('new')) {
-      json.id = id;
-    }
-    console.log("JSON" + JSON.stringify(json))
-    this.noteService.createNote(json).subscribe(data => {
-      event.srcElement.parentElement.parentElement.setAttribute('id', data.id)
-      this.notes[index].id = data.id;
-      this.notes[index].content = data.note;
-      event.target.style.backgroundColor = "#93df93";
-      console.log("********* updating note to API *********", data.id)
-    })
   }
 
   deleteNote(event: any, index: number) {
@@ -58,6 +60,5 @@ export class AppComponent {
       this.notes = [];
       console.log("********* deleting note from API *********", data)
     })
-    return;
   }
 }

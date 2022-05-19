@@ -74,7 +74,8 @@ export class NotesService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
+    console.log("error ::", errorMessage);
+    window.alert("Something went wrong! Please try again later");
     return throwError(() => {
       return errorMessage;
     });
