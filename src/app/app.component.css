@@ -14,6 +14,7 @@
 .flex-item {
   padding: 10px;
   flex: 45%;
+  width: 95%;
 }
 
 @media (max-width: 800px) {

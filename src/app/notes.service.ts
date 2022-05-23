@@ -11,7 +11,7 @@ export class NotesService {
   // Define API
   apiURL = 'http://localhost:8080/note';
   constructor(private http: HttpClient) { }
-  
+
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
@@ -75,7 +75,7 @@ export class NotesService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log("error ::", errorMessage);
-    window.alert("Something went wrong! Please try again later");
+    //window.alert("Something went wrong! Please try again later");
     return throwError(() => {
       return errorMessage;
     });
